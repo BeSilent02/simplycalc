@@ -1,0 +1,173 @@
+<html>
+<head>
+	<title>Simply Calculator</title>
+	<style>
+		.buttContainer{
+			margin-left: 600px;
+			float: left;
+		}
+		.buttContainer > form > input{
+			height: 95px;
+			width: 95px;
+		}
+		header{
+			width:100%;
+			height:100px;
+			background-color:yellow;
+			text-align:center;
+			padding-top:25px;
+			float:none;
+		}
+		#tArea, #tArea2, #submit1, #submit2, #submit3, #submit4, #submit5, #submit6{
+			margin-left: 600px;
+		}
+        </style>
+</head>
+<body>
+	<header><h3>Simply Calculator</h3></header>
+		<input type="number" id="tArea" style="display: none;">
+		<input type="number" id="tArea2" style="display: none;">
+		<input type="button" id= "submit1" value="RESULT" style="display: none;" onclick=resultAdd()>
+		<input type="button" id= "submit2" value="RESULT" style="display: none;" onclick=resultSub()>
+		<input type="button" id= "submit3" value="RESULT" style="display: none;" onclick=resultMulti()>
+		<input type="button" id= "submit4" value="RESULT" style="display: none;" onclick=resultDiv()>
+		<input type="button" id= "submit5" value="RESULT" style="display: none;" onclick=resultPK()>
+		<input type="button" id= "submit6" value="RESULT" style="display: none;" onclick=resultPK2()>
+		<p id="wynik"></p>
+	<div class=buttContainer>
+		<form>
+			<input id="addB"	type=button value="Add" onclick=input1()>
+			<input id="subB"	type=button value="Substract" onclick=input2()><br>
+			<input id="multiB"	type=button value="Multiply" onclick=input3()>
+			<input id="divB"	type=button value="Divide" onclick=input4()><br>
+			<input id="pKwadrat" type="button" value="Square Area" onclick=input5()>
+			<input id="pKolo" type="button" value="Wheel Area" onclick=input6()>
+		</form>
+	</div>
+	<script>
+		var wynik = 0;
+		function input1(){
+				document.getElementById("tArea").style.display="block";
+				document.getElementById("tArea2").style.display="block";
+				document.getElementById("submit1").style.display="block";
+				document.getElementById("submit2").style.display="none";
+				document.getElementById("submit3").style.display="none";
+				document.getElementById("submit4").style.display="none";
+				document.getElementById("submit5").style.display="none";
+				document.getElementById("submit6").style.display="none";
+				document.getElementById("wynik").innerHTML="";
+		}
+		function input2(){
+				document.getElementById("tArea").style.display="block";
+				document.getElementById("tArea2").style.display="block";
+				document.getElementById("submit2").style.display="block";
+				document.getElementById("submit1").style.display="none";
+				document.getElementById("submit3").style.display="none";
+				document.getElementById("submit4").style.display="none";
+				document.getElementById("submit5").style.display="none";
+				document.getElementById("submit6").style.display="none";
+				document.getElementById("wynik").innerHTML="";
+
+		}
+		function input3(){
+				document.getElementById("tArea").style.display="block";
+				document.getElementById("tArea2").style.display="block";
+				document.getElementById("submit3").style.display="block";
+				document.getElementById("submit4").style.display="none";
+				document.getElementById("submit2").style.display="none";
+				document.getElementById("submit1").style.display="none";
+				document.getElementById("submit5").style.display="none";
+				document.getElementById("submit6").style.display="none";
+				document.getElementById("wynik").innerHTML="";
+		}
+		function input4(){
+				document.getElementById("tArea").style.display="block";
+				document.getElementById("tArea2").style.display="block";
+				document.getElementById("submit4").style.display="block";
+				document.getElementById("submit3").style.display="none";
+				document.getElementById("submit2").style.display="none";
+				document.getElementById("submit1").style.display="none";
+				document.getElementById("submit5").style.display="none";
+				document.getElementById("submit6").style.display="none";
+				document.getElementById("wynik").innerHTML="";
+		}
+		function input5(){
+				document.getElementById("tArea").style.display="block";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit5").style.display="block";
+				document.getElementById("submit3").style.display="none";
+				document.getElementById("submit2").style.display="none";
+				document.getElementById("submit1").style.display="none";
+				document.getElementById("submit6").style.display="none";
+				document.getElementById("wynik").innerHTML="";
+		}
+		function input6(){
+				document.getElementById("tArea").style.display="block";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit6").style.display="block";
+				document.getElementById("submit3").style.display="none";
+				document.getElementById("submit2").style.display="none";
+				document.getElementById("submit1").style.display="none";
+				document.getElementById("submit5").style.display="none";
+		}
+		function resultAdd(){	
+				var x = document.getElementById("tArea").value*1;
+				var y = document.getElementById("tArea2").value*1;
+				wynik=x+y;
+				document.getElementById("tArea").style.display="none";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit1").style.display="none";
+				document.getElementById("wynik").style.marginLeft="620px";
+				document.getElementById("wynik").innerHTML = "wynik dodawania wynosi: " + wynik;
+		}
+		function resultSub(){
+				var x = document.getElementById("tArea").value*1;
+				var y = document.getElementById("tArea2").value*1;
+				wynik=x-y;
+				document.getElementById("wynik").style.marginLeft="620px";
+				document.getElementById("tArea").style.display="none";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit2").style.display="none";
+				document.getElementById("wynik").innerHTML = "wynik odejmowania wynosi: " + wynik;
+		}
+		function resultMulti(){
+				var x = document.getElementById("tArea").value*1;
+				var y = document.getElementById("tArea2").value*1;
+				wynik=x*y;
+				document.getElementById("wynik").style.marginLeft="620px";
+				document.getElementById("tArea").style.display="none";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit3").style.display="none";
+				document.getElementById("wynik").innerHTML = "wynik mnożenia wynosi: " + wynik;
+		}
+		function resultDiv(){
+				document.getElementById("wynik").style.marginLeft="620px";
+				var x = document.getElementById("tArea").value*1;
+				var y = document.getElementById("tArea2").value*1;
+				wynik = x/y;
+				document.getElementById("tArea").style.display="none";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit4").style.display="none";
+				document.getElementById("wynik").innerHTML = "Wynik dzielenia wynosi: " + wynik;
+		}
+		function resultPK(){
+				document.getElementById("wynik").style.marginLeft="620px";
+				var x = document.getElementById("tArea").value*1;
+				wynik = x*x;
+				document.getElementById("tArea").style.display="none";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit5").style.display="none";
+				document.getElementById("wynik").innerHTML = "Pole Kwadratu wynosi: " + wynik + "cm2";
+		}
+		function resultPK2(){
+				document.getElementById("wynik").style.marginLeft="620px";
+				var x = document.getElementById("tArea").value*1;
+				wynik = x*x*3.14;
+				document.getElementById("tArea").style.display="none";
+				document.getElementById("tArea2").style.display="none";
+				document.getElementById("submit6").style.display="none";
+				document.getElementById("wynik").innerHTML = "Wynik dzielenia wynosi: " + wynik + "cm2";
+		}
+	</script>
+</body>
+</html>
